@@ -6,7 +6,7 @@ import ReduxThunk from 'redux-thunk';
 import reducers from './reducers';
 import LoginForm from './components/LoginForm';
 
-class App extends Component{
+class App extends Component {
     componentWillMount(){
         const config = {
             apiKey: 'AIzaSyAUZi0XW0MBEHWLB-VkvvVFFIRrAUDN_-Y',
@@ -16,16 +16,17 @@ class App extends Component{
             storageBucket: 'manager-7bef2.appspot.com',
             messagingSenderId: '903547906986'
           };
-          firebase.initializeApp(config);
+        
+        firebase.initializeApp(config);
     }
 
     render(){
         const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
 
-        return (
-            <Provider store = { store }>
-                <LoginForm />
-            </Provider>
+        return(
+        <Provider store={store}>
+            <LoginForm />
+        </Provider>
         );
     }
 }
